@@ -35,15 +35,15 @@
   }
 
   /* ---------- Header shadow on scroll ---------- */
-const header = document.querySelector('.site-header');
+  const header = document.querySelector('.site-header');
 
-function onScroll() {
-  if (!header) return;
-  header.classList.toggle('is-scrolled', window.scrollY > 10);
-}
+  function onScroll() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 10);
+  }
 
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   /* ---------- Count-up numbers ---------- */
   function countUp(el) {

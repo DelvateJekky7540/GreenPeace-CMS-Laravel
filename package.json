@@ -17,6 +17,14 @@
         "@laravel/multiplex": "^0.4.1"
     },
     "dependencies": {
-        "flowbite": "^4.0.2"
+        "@alpinejs/collapse": "^3.17.5",
+        "alpinejs": "^3.17.5",
+        "apexcharts": "^8.7.0",
+        "axios": "^1.21.0",
+        "flatpickr": "^4.6.13",
+        "flowbite": "^4.0.2",
+        "jsvectormap": "^1.7.0",
+        "prismjs": "^1.30.0",
+        "swiper": "^14.4.0"
     }
 }

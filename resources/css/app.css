@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './public.css';
+@import './admin.css';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @theme {
@@ -8,3 +9,7 @@
 }
 
 @custom-variant hover (&:hover);
+
+
+
+
