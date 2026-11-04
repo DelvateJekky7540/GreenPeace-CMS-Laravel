@@ -20,19 +20,13 @@ class AuthController extends Controller {
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 
-            // Jika Admin atau Editor, masuk ke Dashboard Utama
-            if (in_array(Auth::user()->role, ['admin', 'editor'])) {
-                return redirect()->intended(route('admin.dashboard'));
-            } 
-            
-            // Jika Author, masuk ke Dashboard Author
-            return redirect()->intended(route('author.dashboard'));
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
             'username' => 'Username Atau Password Salah'
         ])->onlyInput('username');
-    } // <--- KURUNG KURAWAL PENUTUP UNTUK auth() DITAMBAHKAN DI SINI
+    }
 
     public function logout(Request $request) {
         Auth::logout();

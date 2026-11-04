@@ -3150,7 +3150,6 @@
     initial-value: "";
 }
 
-/* Pastikan saat transparan, teks header putih bersih */
 .site-header {
     background-color: transparent;
 }
@@ -3160,9 +3159,8 @@
 .site-header .site-logo {
     color: #fff;
     filter: brightness(0) invert(1);
-} /* Jika logo awalnya gelap */
+}
 
-/* Saat scroll, jadi putih dengan teks gelap */
 .site-header.is-scrolled {
     background-color: #ffffff;
 }
