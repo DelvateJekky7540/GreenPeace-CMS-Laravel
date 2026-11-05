@@ -4,34 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Redis;
 
 class AuthController extends Controller {
-    
-    public function index() {
-        return view('public.auth.login');        
+
+    public function login() {
+        return view('public.auth.login');
     }
 
-    public function auth(Request $request) {
-        $credentials = $request->validate([
-            'username' => ['required', 'string'],
-            'password' => ['required'],
+    public function loginProses(Request $request) {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ], [
+            'username.required'        => 'Username tidak boleh kosong!',
+            'password.required'     => 'Password tidak boleh kosong!'
         ]);
 
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        $data = array(
+            'username' => $request->username,
+            'password' => $request->password,
+        );
+
+        if (Auth::attempt($data)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            if (auth()->user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+            return redirect()->route('user.dashboard');
+        } else {
+            return redirect()->back()->with('error', 'Username atau Password salah!');// with untuk memberi session error dengan pesan
         }
-
-        return back()->withErrors([
-            'username' => 'Username Atau Password Salah'
-        ])->onlyInput('username');
     }
 
-    public function logout(Request $request) {
+    public function logout() {
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

@@ -3,10 +3,32 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-// Halaman Publik
+// Publik
 Route::get('/', function () { return view('public.home'); });
 
-// Auth Routes
-Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'auth'])->middleware('guest');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Login
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'loginProses'])->name('loginProses');
+
+// Logout
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware(['cekLogin', 'role:admin'])->group(function () {
+
+    // Validasi role admin lalu diarahkan ke dashboard
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+});
+
+// 
+// Route::middleware(['cekLogin', 'role:user'])->group(function () {
+
+//     Route::get('/user/dashboard', function () {
+//         return view('user.dashboard');
+//     })->name('user.dashboard');
+
+// });
