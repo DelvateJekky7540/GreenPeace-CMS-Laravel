@@ -21,6 +21,6 @@ class RadioButtons extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.form-elements.radio-buttons');
+        return view('tailadmin.components.form.form-elements.radio-buttons');
     }
 }

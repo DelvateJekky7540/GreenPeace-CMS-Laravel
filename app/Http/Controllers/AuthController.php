@@ -31,8 +31,7 @@ class AuthController extends Controller {
 
             if (auth()->user()->role === 'admin') {
                 return redirect()->route('admin.dashboard');
-            }
-            return redirect()->route('user.dashboard');
+            } 
         } else {
             return redirect()->back()->with('error', 'Username atau Password salah!');// with untuk memberi session error dengan pesan
         }

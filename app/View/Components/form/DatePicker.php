@@ -21,6 +21,6 @@ class DatePicker extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.date-picker');
+        return view('tailadmin.components.form.date-picker');
     }
 }

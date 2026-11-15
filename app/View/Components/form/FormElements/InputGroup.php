@@ -21,6 +21,6 @@ class InputGroup extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.form-elements.input-group');
+        return view('tailadmin.components.form.form-elements.input-group');
     }
 }

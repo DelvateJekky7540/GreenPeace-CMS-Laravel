@@ -21,6 +21,6 @@ class MultipleSelect extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.select.multiple-select');
+        return view('tailadmin.components.form.select.multiple-select');
     }
 }

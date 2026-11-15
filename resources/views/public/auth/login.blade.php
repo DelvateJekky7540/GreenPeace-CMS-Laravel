@@ -30,6 +30,11 @@
                             <form method="post" action="{{ route('loginProses') }}">
                                 @csrf
                                 <div class="space-y-5">
+                                    @if (session('error'))
+                                        <div class="rounded-lg bg-error-50 px-4 py-3 text-sm text-error-500 dark:bg-error-500/15 dark:text-error-500">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
                                     <!-- Email -->
                                     <div>
                                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">

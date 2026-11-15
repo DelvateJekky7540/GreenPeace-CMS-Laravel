@@ -10,7 +10,9 @@
 
             {{-- 1. Background Image --}}
             {{-- Gunakan object-center md:object-top agar monumen tidak terpotong di mobile --}}
-            <img src="{{ asset('assets/hero/hero-gp.webp') }}" alt="Aksi damai untuk bumi" class="absolute inset-0 h-full w-full object-cover object-center md:object-top" loading="eager" fetchpriority="high">
+            @if (!empty($hero->image))
+                <img src="{{ asset('storage/' . $hero->image) }}" alt="{{ $hero->title }}" class="absolute inset-0 h-full w-full object-cover object-center md:object-top" loading="eager" fetchpriority="high">
+            @endif
 
             {{-- 2. Overlay Gelap --}}
             {{-- Saya gunakan gradient dari kiri (gelap) ke kanan (terang) agar teks di kiri sangat jelas --}}
@@ -26,12 +28,12 @@
                     
                     {{-- Judul (Gunakan font-display / Anton) --}}
                     <h1 class="text-white text-5xl md:text-7xl lg:text-[6.5rem] tracking-wide">
-                        Bertindak untuk <br>Bumi.
+                        {{ $hero->title ?? 'Ga ke load' }}
                     </h1>
 
                     {{-- Paragraf --}}
                     <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-xl font-light">
-                        Krisis iklim nyata. Kita tidak bisa diam. Bergabunglah dengan jutaan orang di seluruh dunia untuk melindungi hutan, laut, dan kehidupan.
+                        {{ $hero->subtitle ?? 'Ga ke load' }}
                     </p>
 
                     {{-- Tombol CTA (Sangat disarankan) --}}

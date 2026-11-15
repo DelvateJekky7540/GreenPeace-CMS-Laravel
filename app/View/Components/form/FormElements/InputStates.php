@@ -21,6 +21,6 @@ class InputStates extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.form-elements.input-states');
+        return view('tailadmin.components.form.form-elements.input-states');
     }
 }

@@ -21,6 +21,6 @@ class FileInputExample extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.form-elements.file-input-example');
+        return view('tailadmin.components.form.form-elements.file-input-example');
     }
 }

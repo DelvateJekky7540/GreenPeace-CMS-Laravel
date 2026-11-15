@@ -21,6 +21,6 @@ class TextAreaInputs extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.form-elements.text-area-inputs');
+        return view('tailadmin.components.form.form-elements.text-area-inputs');
     }
 }
