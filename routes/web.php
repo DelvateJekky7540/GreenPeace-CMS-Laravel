@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 
 // Publik
@@ -27,6 +28,8 @@ Route::middleware(['cekLogin', 'role:admin'])->group(function () {
     
     Route::get('dashboard/hero', [HeroController::class, 'index'])->name('admin.hero');
     Route::put('dashboard/hero', [HeroController::class, 'update'])->name('hero.update');
+
+    Route::get('dashboard/tentang-kami', [TentangController::class, 'index'])->name('admin.tentang');
 
 });
 

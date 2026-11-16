@@ -29,7 +29,6 @@
                     <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-2" class="absolute left-0 mt-4 w-60 rounded-2xl bg-[#FAF6EF] p-2 shadow-xl border border-black/5 z-50" x-cloak>
                         <ul class="flex flex-col gap-1 text-sm">
                             <li><a href="{{ route('tentang') }}" class="block rounded-xl px-4 py-2.5 text-[#1A1A17] hover:bg-black/5 transition-colors">Tentang Greenpeace</a></li>
-                            <li><a href="#" class="block rounded-xl px-4 py-2.5 text-[#1A1A17] hover:bg-black/5 transition-colors">Misi</a></li>
                             <li><a href="#" class="block rounded-xl px-4 py-2.5 text-[#1A1A17] hover:bg-black/5 transition-colors">Laporan Tahunan</a></li>
                             <li><a href="#" class="block rounded-xl px-4 py-2.5 text-[#1A1A17] hover:bg-black/5 transition-colors">Pekerjaan</a></li>
                         </ul>
