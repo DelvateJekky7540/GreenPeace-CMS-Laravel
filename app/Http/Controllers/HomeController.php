@@ -9,4 +9,8 @@ class HomeController extends Controller {
         $hero = Hero::first();
         return view('public.home', compact('hero'));
     }
+
+    public function tentang() {
+        return view('public.tentang-kami.tentang');
+    }
 }

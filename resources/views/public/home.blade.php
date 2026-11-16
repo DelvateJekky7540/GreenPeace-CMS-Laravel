@@ -1,6 +1,6 @@
 @extends('templates.public')
 
-@section('title', 'Home')
+@section('title', 'Greenpeace Indonesia')
 
 @section('content')
     <main id="main">

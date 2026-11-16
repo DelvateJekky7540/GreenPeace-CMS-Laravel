@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 // Publik
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tentang-greenpeace', [HomeController::class, 'tentang'])->name('tentang');
 
 
 // Login
