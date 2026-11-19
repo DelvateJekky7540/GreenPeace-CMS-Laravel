@@ -30,6 +30,7 @@ Route::middleware(['cekLogin', 'role:admin'])->group(function () {
     Route::put('dashboard/hero', [HeroController::class, 'update'])->name('hero.update');
 
     Route::get('dashboard/tentang-kami', [TentangController::class, 'index'])->name('admin.tentang');
+    // Route::get('dashboard/tentang-kami', [TentangController::class, 'update'])->name('tentang.update');
 
 });
 

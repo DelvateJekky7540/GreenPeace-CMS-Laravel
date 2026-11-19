@@ -13,60 +13,45 @@
             </div>
         @endif
 
-        {{-- Container Tab --}}
         <div x-data="{ selectedTab: 'tentang' }" class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
             
-            {{-- Navigasi Tab --}}
             <div class="flex h-12 w-full gap-2 overflow-x-auto overflow-y-hidden border-b border-gray-200 bg-transparent p-0 dark:border-gray-700" role="tablist">
-                <button x-on:click="selectedTab = 'tentang'" 
-                    x-bind:class="selectedTab === 'tentang' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
-                    class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" 
-                    type="button" role="tab">
-                    Tentang Kami
+                <button x-on:click="selectedTab = 'tentang'" x-bind:class="selectedTab === 'tentang' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'" class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" type="button" role="tab">
+                    Tentang Greenpeace
                 </button>
                 
-                {{-- Contoh Tab lain (bisa kamu isi nanti) --}}
-                <button x-on:click="selectedTab = 'misi'" 
-                    x-bind:class="selectedTab === 'misi' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
-                    class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" 
-                    type="button" role="tab">
-                    Visi & Misi
+                <button x-on:click="selectedTab = 'visi-misi'" x-bind:class="selectedTab === 'visi-misi' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'" class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" type="button" role="tab">
+                    Visi Misi
                 </button>
 
-                <button x-on:click="selectedTab = 'sejarah'" 
-                    x-bind:class="selectedTab === 'sejarah' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'"
-                    class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" 
-                    type="button" role="tab">
+                <button x-on:click="selectedTab = 'sejarah'" x-bind:class="selectedTab === 'sejarah' ? 'border-brand-500 text-brand-500 dark:border-brand-400 dark:text-brand-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'" class="-mb-px inline-flex h-12 cursor-pointer items-center justify-center border-b-2 px-4 text-sm font-medium transition-colors" type="button" role="tab">
                     Sejarah
                 </button>
             </div>
 
-            {{-- Konten Tab --}}
             <div class="pt-6">
-                
-                {{-- TAB: OVERVIEW --}}
                 <div x-show="selectedTab === 'tentang'" x-transition.opacity class="space-y-6">
                     
-                    <x-common.component-card title="Deskripsi Tentang Kami">
+                    <x-common.component-card title="Deskripsi Tentang Greenpeace">
                         <div>
-                            <label for="deskripsi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                            <label for="tentang" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                                 Deskripsi <span class="text-error-500">*</span>
                             </label>
                             <textarea 
-                                id="deskripsi" 
-                                name="deskripsi" 
+                                id="tentang" 
+                                name="tentang" 
                                 rows="6" 
-                                placeholder="Masukkan deskripsi tentang kami..."
-                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('deskripsi') !border-red-500 @enderror"
-                            >{{ old('deskripsi', $tentang->deskripsi ?? '') }}</textarea>
+                                placeholder="Masukkan deskripsi tentang Greenpeace..."
+                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('tentang') !border-red-500 @enderror"
+                            >{{ old('tentang', $tentang->tentang ?? '') }}</textarea>
                             
-                            @error('deskripsi')
+                            @error('tentang')
                                 <small class="text-error-500 mt-1 block">{{ $message }}</small>
                             @enderror
                         </div>
                     </x-common.component-card>
 
-                    <x-common.component-card title="Foto Tentang Kami">
+                    <x-common.component-card title="Foto Tentang Greenpeace">
                         <div 
                             x-data="{
                                 isDragging: false,
@@ -101,7 +86,7 @@
                                 }
                             }"
                             class="transition border border-dashed rounded-xl cursor-pointer
-                                {{ $errors->has('foto') ? 'border-error-300 dark:border-error-700' : 'border-gray-300 hover:border-brand-500 dark:border-gray-700 dark:hover:border-brand-500' }}"
+                                {{ $errors->has('foto_tentang') ? 'border-error-300 dark:border-error-700' : 'border-gray-300 hover:border-brand-500 dark:border-gray-700 dark:hover:border-brand-500' }}"
                         >
                             <div 
                                 @drop.prevent="handleDrop($event)"
@@ -114,8 +99,8 @@
                                 <input 
                                     x-ref="fileInput"
                                     type="file" 
-                                    id="foto"
-                                    name="foto" 
+                                    id="foto_tentang"
+                                    name="foto_tentang" 
                                     accept="image/png,image/jpeg,image/webp,image/svg+xml"
                                     @change="handleFiles($event.target.files[0])"
                                     class="hidden"
@@ -146,7 +131,6 @@
                                 </div>
                             </div>
 
-                            {{-- Preview gambar baru --}}
                             <div x-show="previewUrl" x-cloak class="p-4 border-t border-gray-200 dark:border-gray-700">
                                 <div class="flex items-center justify-between gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                                     <div class="flex items-center gap-3">
@@ -162,12 +146,11 @@
                             </div>
                         </div>
 
-                        {{-- Preview gambar lama --}}
-                        @if (!empty($tentang->foto))
+                        @if (!empty($tentang->foto_tentang))
                             <div class="mt-4">
                                 <p class="mb-2 text-theme-xs text-gray-500 dark:text-gray-400">Foto saat ini:</p>
                                 <img 
-                                    src="{{ asset('storage/' . $tentang->foto) }}" 
+                                    src="{{ asset('storage/' . $tentang->foto_tentang) }}" 
                                     alt="Overview Image"
                                     class="h-40 w-auto rounded-lg object-cover border border-gray-300 dark:border-gray-700"
                                 >
@@ -178,75 +161,75 @@
                             Kosongkan jika tidak ingin mengganti foto. Maks: 2MB.
                         </p>
 
-                        @error('foto')
+                        @error('foto_tentang')
                             <p class="text-theme-xs text-error-500 mt-1">{{ $message }}</p>
                         @enderror
                     </x-common.component-card>
                     
                 </div>
 
-                {{-- TAB: MISI (Placeholder, tinggal diisi nanti) --}}
-                <div x-show="selectedTab === 'misi'" x-transition.opacity class="space-y-6">
-                    <x-common.component-card title="Misi Kami">
+                <div x-show="selectedTab === 'visi-misi'" x-transition.opacity class="space-y-6">
+                    <x-common.component-card title="Visi Kami">
                         <div>
-                            <label for="deskripsi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                Misi <span class="text-error-500">*</span>
+                            <label for="visi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Visi <span class="text-error-500">*</span>
                             </label>
                             <textarea 
-                                id="deskripsi" 
-                                name="deskripsi" 
+                                id="visi" 
+                                name="visi" 
                                 rows="6" 
-                                placeholder="Masukkan deskripsi tentang kami..."
-                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('deskripsi') !border-red-500 @enderror"
-                            >{{ old('deskripsi', $tentang->deskripsi ?? '') }}</textarea>
+                                placeholder="Masukkan visi kami..."
+                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('visi') !border-red-500 @enderror"
+                            >{{ old('visi', $tentang->visi ?? '') }}</textarea>
                             
-                            @error('deskripsi')
+                            @error('visi')
                                 <small class="text-error-500 mt-1 block">{{ $message }}</small>
                             @enderror
                         </div>
                     </x-common.component-card>
 
-                    <x-common.component-card title="Visi Kami">
+                    <x-common.component-card title="Misi Kami">
                         <div>
-                            <label for="deskripsi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                Visi <span class="text-error-500">*</span>
+                            <label for="misi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Misi <span class="text-error-500">*</span>
                             </label>
                             <textarea 
-                                id="deskripsi" 
-                                name="deskripsi" 
+                                id="misi" 
+                                name="misi" 
                                 rows="6" 
-                                placeholder="Masukkan deskripsi tentang kami..."
-                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('deskripsi') !border-red-500 @enderror"
-                            >{{ old('deskripsi', $tentang->deskripsi ?? '') }}</textarea>
+                                placeholder="Masukkan misi tentang kami..."
+                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('misi') !border-red-500 @enderror"
+                            >{{ old('misi', $tentang->misi ?? '') }}</textarea>
                             
-                            @error('deskripsi')
+                            @error('misi')
                                 <small class="text-error-500 mt-1 block">{{ $message }}</small>
                             @enderror
                         </div>
                     </x-common.component-card>
                 </div>
 
-                <div x-show="selectedTab === 'sejarah'" x-transition.opacity style="display: none;" class="text-sm text-gray-500 dark:text-gray-400">
-                    <x-common.component-card title="Sejarah Kami">
+                <div x-show="selectedTab === 'sejarah'" x-transition.opacity class="space-y-6">
+                    
+                    <x-common.component-card title="Sejarah Tentang Greenpeace">
                         <div>
-                            <label for="deskripsi" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                Sejarah <span class="text-error-500">*</span>
+                            <label for="sejarah" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Deskripsi <span class="text-error-500">*</span>
                             </label>
                             <textarea 
-                                id="deskripsi" 
-                                name="deskripsi" 
+                                id="sejarah" 
+                                name="sejarah" 
                                 rows="6" 
-                                placeholder="Masukkan deskripsi tentang kami..."
-                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('deskripsi') !border-red-500 @enderror"
-                            >{{ old('deskripsi', $tentang->deskripsi ?? '') }}</textarea>
+                                placeholder="Masukkan sejarah Greenpeace..."
+                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 @error('sejarah') !border-red-500 @enderror"
+                            >{{ old('sejarah', $tentang->sejarah ?? '') }}</textarea>
                             
-                            @error('deskripsi')
+                            @error('sejarah')
                                 <small class="text-error-500 mt-1 block">{{ $message }}</small>
                             @enderror
                         </div>
                     </x-common.component-card>
 
-                    <x-common.component-card title="Foto Sejarah">
+                    <x-common.component-card title="Foto Tentang Greenpeace">
                         <div 
                             x-data="{
                                 isDragging: false,
@@ -281,7 +264,7 @@
                                 }
                             }"
                             class="transition border border-dashed rounded-xl cursor-pointer
-                                {{ $errors->has('foto') ? 'border-error-300 dark:border-error-700' : 'border-gray-300 hover:border-brand-500 dark:border-gray-700 dark:hover:border-brand-500' }}"
+                                {{ $errors->has('foto_Sejarah') ? 'border-error-300 dark:border-error-700' : 'border-gray-300 hover:border-brand-500 dark:border-gray-700 dark:hover:border-brand-500' }}"
                         >
                             <div 
                                 @drop.prevent="handleDrop($event)"
@@ -294,8 +277,8 @@
                                 <input 
                                     x-ref="fileInput"
                                     type="file" 
-                                    id="foto"
-                                    name="foto" 
+                                    id="foto_sejarah"
+                                    name="foto_sejarah" 
                                     accept="image/png,image/jpeg,image/webp,image/svg+xml"
                                     @change="handleFiles($event.target.files[0])"
                                     class="hidden"
@@ -326,7 +309,6 @@
                                 </div>
                             </div>
 
-                            {{-- Preview gambar baru --}}
                             <div x-show="previewUrl" x-cloak class="p-4 border-t border-gray-200 dark:border-gray-700">
                                 <div class="flex items-center justify-between gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                                     <div class="flex items-center gap-3">
@@ -342,12 +324,11 @@
                             </div>
                         </div>
 
-                        {{-- Preview gambar lama --}}
-                        @if (!empty($tentang->foto))
+                        @if (!empty($tentang->foto_Sejarah))
                             <div class="mt-4">
                                 <p class="mb-2 text-theme-xs text-gray-500 dark:text-gray-400">Foto saat ini:</p>
                                 <img 
-                                    src="{{ asset('storage/' . $tentang->foto) }}" 
+                                    src="{{ asset('storage/' . $tentang->foto_Sejarah) }}" 
                                     alt="Overview Image"
                                     class="h-40 w-auto rounded-lg object-cover border border-gray-300 dark:border-gray-700"
                                 >
@@ -358,16 +339,16 @@
                             Kosongkan jika tidak ingin mengganti foto. Maks: 2MB.
                         </p>
 
-                        @error('foto')
+                        @error('foto_sejarah')
                             <p class="text-theme-xs text-error-500 mt-1">{{ $message }}</p>
                         @enderror
                     </x-common.component-card>
+                    
                 </div>
 
             </div>
         </div>
 
-        {{-- Tombol Simpan (Diletakkan di luar kotak Tab agar selalu terlihat) --}}
         <div class="mt-6 flex justify-end">
             <button 
                 type="submit" 

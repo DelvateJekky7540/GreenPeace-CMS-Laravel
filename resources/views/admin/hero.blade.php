@@ -99,7 +99,6 @@
                             : 'bg-gray-50 dark:bg-gray-900'"
                         class="rounded-xl p-7 lg:p-10 transition-colors cursor-pointer"
                     >
-                        {{-- Input file asli (hidden) — ini yang dikirim ke server --}}
                         <input 
                             x-ref="fileInput"
                             type="file" 
@@ -112,7 +111,6 @@
                         />
 
                         <div class="flex flex-col items-center m-0">
-                            {{-- Icon --}}
                             <div class="mb-[22px] flex justify-center">
                                 <div class="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400">
                                     <svg class="fill-current" width="29" height="28" viewBox="0 0 29 28" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +119,6 @@
                                 </div>
                             </div>
 
-                            {{-- Text --}}
                             <h4 class="mb-3 font-semibold text-gray-800 text-theme-xl dark:text-white/90">
                                 <span x-show="!isDragging">Drag & Drop Image Here</span>
                                 <span x-show="isDragging" x-cloak>Drop Image Here</span>
@@ -137,7 +134,6 @@
                         </div>
                     </div>
 
-                    {{-- Preview gambar baru yang dipilih --}}
                     <div x-show="previewUrl" x-cloak class="p-4 border-t border-gray-200 dark:border-gray-700">
                         <div class="flex items-center justify-between gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                             <div class="flex items-center gap-3">
@@ -157,7 +153,7 @@
                     </div>
                 </div>
 
-                {{-- Preview gambar lama dari DB --}}
+                
                 @if (!empty($hero->image))
                     <div class="mt-4">
                         <p class="mb-2 text-theme-xs text-gray-500 dark:text-gray-400">Gambar saat ini:</p>
@@ -178,7 +174,6 @@
                 @enderror
             </x-common.component-card>
 
-            {{-- Tombol Simpan --}}
             <div class="flex justify-end">
                 <button 
                     type="submit" 
